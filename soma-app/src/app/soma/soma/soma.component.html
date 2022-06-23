@@ -1,0 +1,7 @@
+<form (ngSubmit)="handleSubmit()" [formGroup]="somaForm">
+  <span>Número 1: <input formControlName="e1" type="number" [value]="somaForm.value.e1" /></span>
+  <span>Número 2: <input formControlName="e2" type="number" [value]="somaForm.value.e2" /></span>
+  <button type="submit">Somar</button>
+</form>
+
+<h1>{{resultado}}</h1>

@@ -14,10 +14,20 @@
     <div class="form-group">
       <label for="nome">Idade:</label>
       <input name="idade" id="idade" minlength="2" [(ngModel)]="pessoa.idade" #idade="ngModel" required type="text"
-        class="form-control">
+        class="form-control" numerico valorMinimo="18">
       <div class="alert alert-danger" *ngIf="idade.errors && (idade.dirty || idade.touched)">
         <p *ngIf="idade.errors?.['required']">A idade é obrigatória</p>
         <p *ngIf="idade.errors?.['minlength']">A idade deve ter no mínimo 2 caracteres</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="nome">Data Nascimento:</label>
+      <input name="nascimento" id="nascimento" minlength="2" [(ngModel)]="pessoa.nascimento" #nascimento="ngModel"
+        required type="text" class="form-control" nmask="d0/M0/000">
+      <div class="alert alert-danger" *ngIf="nascimento.errors && (nascimento.dirty || nascimento.touched)">
+        <p *ngIf="nascimento.errors?.['required']">Nascimento é obrigatório</p>
+        <p *ngIf="nascimento.errors?.['minlength']">Nascimento deve ter no mínimo 2 caracteres</p>
       </div>
     </div>
 

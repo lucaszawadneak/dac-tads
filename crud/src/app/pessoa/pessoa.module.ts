@@ -7,9 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { InsertComponent } from './insert/insert.component';
 import { EditComponent } from './edit/edit.component';
 
+import { NgxMaskModule } from 'ngx-mask';
+
 @NgModule({
   declarations: [ListComponent, InsertComponent, EditComponent],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, NgxMaskModule.forRoot()],
   providers: [PessoaService],
 })
 export class PessoaModule {}

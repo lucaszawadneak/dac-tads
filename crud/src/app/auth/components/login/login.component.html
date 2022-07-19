@@ -1,0 +1,46 @@
+<h1>Login</h1>
+
+<div *ngIf="message" class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{message}}
+
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+  <button class="close" type="button" data-dismiss="alert" aria-label="Close" (click)="$event.preventDefault()">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+</div>
+
+
+<div class="well">
+  <form #formLogin="ngForm">
+    <div class="form-group">
+      <label for="usuario">Usuário:</label>
+      <input type="text" type="text" class="form-control" id="email" name="email" [(ngModel)]="login.email"
+        #email="ngModel" required>
+      <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+        <div [hidden]="!email.errors?.['reduired']">
+          Digite o usuário
+        </div>
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="usuario">Senha:</label>
+      <input type="text" type="text" class="form-control" id="password" name="password" [(ngModel)]="login.password"
+        #password="ngModel" required>
+      <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+        <div [hidden]="!password.errors?.['reduired']">
+          Digite a senha
+        </div>
+
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="logar()" [disabled]="!formLogin.form.valid">Logar</button>
+
+
+    <button type="button" class="btn btn-primary" [routerLink]="['/cadastro']">Cadastrar</button>
+  </form>
+</div>
